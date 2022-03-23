@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Agregar Cliente</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<section th:fragment="agregarCliente">
+    <div id="agregarCliente" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-header text-white">
+                    <h5 class="modal-title">[[#{persona.crear}]]</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!--/*
+                      was-validated es una clase de bootstrap para hacer las validaciones
+                      de manera visual y atractiva por nosotres.
+                */-->
+                <form th:action="@{/guardar}" th:object="${persona}" method="post"
+                      class="was-validated">
+                    <div class="modal-body col-sm-11 mx-auto">
+                        <div class="row input-group mb-3">
+                            <label for="nombre" class="col-form-label col-md-3">[[#{persona.nombre}]]:</label>
+                            <input type="text" class="form-control" name="nombre" id="nombre" required>
+                        </div>
+                        <div class="row input-group mb-3">
+                            <label for="apellido" class="col-form-label col-md-3">[[#{persona.apellido}]]:</label>
+                            <input type="text" class="form-control" name="apellido" id="apellido" required>
+                        </div>
+                        <div class="row input-group mb-3">
+                            <label for="email" class="col-form-label col-md-3">[[#{persona.email}]]:</label>
+                            <input type="email" class="form-control" name="email" id="email" required>
+                        </div>
+                        <div class="row input-group mb-3">
+                            <label for="telefono" class="col-form-label col-md-3">[[#{persona.telefono}]]:</label>
+                            <input type="tel" class="form-control" name="telefono" id="telefono">
+                        </div>
+                        <div class="row input-group mb-3">
+                            <label for="saldo" class="col-form-label col-md-3">[[#{persona.saldo}]]:</label>
+                            <!--/* step="any" sirve para permitir decimales */-->
+                            <input type="number" class="form-control" name="saldo" id="saldo" required step="any">
+                        </div>
+                    </div>
+                    <div class="modal-footer mb-3">
+                        <button type="submit" class="btn btn-submit">[[#{accion.guardar}]]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

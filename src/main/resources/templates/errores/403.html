@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:with="lang=${#locale.language}"
+      th:lang="${lang}">
+<head th:replace="layout/plantilla :: head">
+    <title>Acceso denegado</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <header th:replace="layout/plantilla :: header"></header>
+
+    <div>
+        <h2>Acceso denegado.</h2>
+        <p>El usuario no tiene permiso para ver esta página o ejecutar esta acción.</p>
+        <a th:href="@{/}">[[#{accion.regresar}]]</a>
+    </div>
+
+    <footer th:replace="layout/plantilla :: footer"></footer>
+</body>
+</html>

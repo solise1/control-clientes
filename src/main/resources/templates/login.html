@@ -1,0 +1,60 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:with="lang=${#locale.language}"
+      th:lang="${lang}">
+
+<head th:replace="layout/plantilla :: head">
+    <title>Login</title>
+</head>
+<body>
+    <header th:replace="layout/plantilla :: header"></header>
+
+    <section id="actions" class="py-4 mb-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <!-- Podemos agregar botones acá -->
+            </div>
+        </div>
+    </section>
+
+    <section id="login">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <!--/* card = una carta que posee un card-header y un card-body. Cada field del formulario con su
+                    label se aloja en un input-group. Finalmente añadimos el botón de submit fuera de un form-group */-->
+                    <div class="card">
+                        <div class="card-header login-card-header">
+                            <h4>Login</h4>
+                        </div>
+
+                        <div class="card-body">
+                            <form method="POST" th:action="@{/login}">
+                                <div class="input-group mb-3">
+                                    <label for="username" class="col-sm-3 col-form-label">[[#{login.username}]]:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="username" id="username" autofocus>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <label for="password" class="col-sm-3 col-form-label">[[#{login.password}]]:</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control" name="password" id="password">
+                                    </div>
+                                </div>
+
+                                <!--/* d-grid sirve para que ocupe todo */-->
+                                <div class="d-grid">
+                                    <button class="btn btn-submit" type="submit">[[#{login.submit}]]</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer th:replace="layout/plantilla :: footer"></footer>
+</body>
+</html>

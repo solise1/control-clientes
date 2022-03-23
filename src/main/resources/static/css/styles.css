@@ -1,0 +1,88 @@
+/* changes to some bootstrap defaults */
+.was-validated .form-control:valid, .form-control.is-valid {
+    border-color: #278b97;
+}
+.was-validated .form-control:valid:focus, .form-control.is-valid:focus {
+    border-color: #278b97;
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 135, 0.25);
+}
+
+.was-validated .form-control:invalid, .form-control.is-invalid {
+    border-color: #ae1c51;
+}
+.was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
+    border-color: #ae1c51;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 142, 0.25);
+}
+
+
+.card {
+    border-radius: 0.5rem;
+}
+
+.table th {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+/* layout: top, header, footer */
+.bg-top {
+    background-color: #222222;
+}
+
+.bg-header {
+    background-color: #705688;
+}
+
+.bg-footer {
+    background-color: #473458;
+    color: white;
+}
+
+.bg-footer a {
+    color: #f7ecff;
+}
+
+
+/* actions */
+.btn-submit {
+    color: #fff;
+    background-color: #278b97;
+    border-color: #278b97;
+}
+
+.btn-edit {
+    color: #222222;
+    background-color: #edcb63;
+    border-color: #edcb63;
+}
+
+.btn-delete {
+    color: #fff;
+    background-color: #ae1c51;
+    border-color: #ae1c51;
+}
+
+
+/* login */
+.login-card-header {
+    background-color: #f7ecff;
+}
+
+
+/* index: customer list, blocks with information... */
+.list-card-header {
+    background-color: #f4b754;
+}
+
+.info-block {
+    color: #222222;
+    background-color: #fff7eb;
+    border: 1px solid rgba(0, 0, 0, 0.17);
+}
+
+/* modify */
+.edit-card-header {
+    background-color: #e2a728;
+}

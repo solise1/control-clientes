@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:with="lang=${#locale.language}"
+      th:lang="${lang}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head">
+    <title>Control Clientes</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+
+    <header th:fragment="header">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-top p-0" th:fragment="navbar">
+            <div class="container">
+                <a th:href="@{/}" class="navbar-brand">[[#{plantilla.titulo}]]</a>
+                <!--/* navbar-toggler aparece solamente en pantallas pequeñas y dispositivos móbiles */-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <!--/* navbar-toggler-icon es simplemente el ícono que se va a mostrar en el botón */-->
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--/* navbar-collapse es el menú que se va a ver cuando hacemos click en el botón */-->
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav">
+                        <!--/* px-2 significa que va a tener un padding horizontal de 2 */-->
+                        <li class="nav-item px-2">
+                            <a th:href="@{/}" class="nav-link active">[[#{barra.inicio}]]</a>
+                        </li>
+                    </ul>
+                    <!--/* ms = margin start (previously ml, or margil left) */-->
+                    <ul sec:authorize="isAuthenticated()" class="navbar-nav ms-auto">
+                        <li class="nav-item me-3">
+                            <a class="nav-link ">
+                                <!--/* font awesome */-->
+                                <i class="fas fa-user"></i>
+                                <span>[[#{barra.bienvenido}]]</span>
+                                <span sec:authentication="name">Usuario</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="post" th:action="@{/logout}">
+                                <a href="#" onclick="this.parentNode.submit();" class="nav-link">
+                                    <i class="fas fa-user-times"></i> [[#{barra.salir}]]
+                                </a>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section id="main-header" class="py-2 bg-header text-white">
+            <div class="container">
+                <div class="row">
+                    <!--/* Por defecto Bootstrap utiliza grids con 12 columnas. col-md-6 significa columna mediana
+                      que ocupe la mitad del layout ( 12/6 = 2 ) */-->
+                    <div class="col-md-6">
+                        <h1>
+                            <i class="fas fa-cog"></i> [[#{plantilla.titulo}]]
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+
+
+    <!--/* mt = margin top */-->
+    <footer th:fragment="footer" class="bg-footer mt-5 p-5">
+        <div class="container">
+            <div class="col">
+                <p class="lead text-center">
+                    <a th:href="@{/(lang=es)}">ES</a> |
+                    <a th:href="@{/(lang=en)}">EN</a> |
+                    <span>
+                        [[#{plantilla.pie-pagina}]] &copy; <a href="adopta.bun" target="_blank">Adopt A Bunny</a>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
