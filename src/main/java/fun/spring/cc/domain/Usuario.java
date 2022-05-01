@@ -14,7 +14,7 @@ public class Usuario implements Serializable {
     @SequenceGenerator(
             name = "usuario_sequence",
             sequenceName = "usuario_sequence",
-            allocationSize = 1 // this means that it will increment by 1
+            allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,

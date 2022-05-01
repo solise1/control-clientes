@@ -15,24 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 
-// Esta clase implementa la interfaz UserDetailsService, que nos permite mapear
-// nuestras clases (en este caso, Usuario y Rol) en objetos que pueden ser comprendidos
-// por Spring Security.
 @Service("userDetailsService")
 public class UsuarioService implements UserDetailsService {
-
-    // Necesitamos un repo como dependencia, que Spring va a inyectar automáticamente.
     @Autowired
     private UsuarioDao usuarioDao;
 
-    // UserDetails loadUserByUsername(String s) busca un usuario a través de una
-    // string (el nombre de usuario). Si el usuario no existe arroja una excepción.
-    // De otra manera, crea un arraylist de tipo GrantedAuthority, que es un objeto
-    // que Spring Security utiliza como rol. Recorremos los Roles del usuario que
-    // nosotres definimos, y finalmente creamos un nuevo SimpleGrantedAuthority a
-    // partir del nombre de cada rol.
-    // Finalmente retornamos un nuevo objeto User y le pasamos el nombre de usuario,
-    // la contraseña y la lista de GrantedAuthority.
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

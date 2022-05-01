@@ -12,7 +12,7 @@ public class Rol implements Serializable {
     @SequenceGenerator(
             name = "rol_sequence",
             sequenceName = "rol_sequence",
-            allocationSize = 1 // this means that it will increment by 1
+            allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,

@@ -7,14 +7,14 @@ import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
-@Table // aquí podemos indicar name = "databaseName" entre paréntesis si tenemos problemas accediendo a la db correcta
+@Table
 public class Persona {
 
     @Id
     @SequenceGenerator(
             name = "persona_sequence",
             sequenceName = "persona_sequence",
-            allocationSize = 1 // this means that it will increment by 1
+            allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -22,7 +22,7 @@ public class Persona {
     )
     private Long id;
 
-    @NotEmpty // valida que no sea null ni tampoco vacío
+    @NotEmpty
     private String nombre;
     @NotEmpty
     private String apellido;
