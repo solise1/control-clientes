@@ -1,2 +1,2 @@
-# control-clientes
-Spring MVC &amp; Security, Thymeleaf with Bootstrap and FontAwesome
+# Control Clientes
+Webapp made with Spring MVC, Spring Security, Thymeleaf, Bootstrap and FontAwesome
